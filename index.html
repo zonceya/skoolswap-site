@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkoolSwap</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Flowbite CDN for carousel -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- Navbar -->
+  <header class="fixed w-full bg-white shadow z-50">
+    <nav class="flex items-center justify-between px-6 py-3">
+      <img src="assets/logo.png" alt="SkoolSwap Logo" class="h-10">
+      <ul class="hidden md:flex gap-6 font-medium">
+        <li><a href="#home" class="hover:text-blue-600">Home</a></li>
+        <li><a href="#about" class="hover:text-blue-600">About</a></li>
+        <li><a href="#features" class="hover:text-blue-600">Features</a></li>
+        <li><a href="#mission" class="hover:text-blue-600">Mission</a></li>
+        <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Carousel -->
+  <section id="home" class="pt-20 relative">
+    <div id="hero-carousel" class="relative w-full" data-carousel="slide">
+      <div class="relative h-[500px] overflow-hidden">
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img src="assets/hero1.png" class="absolute block w-full h-full object-cover" alt="Uniforms">
+        </div>
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img src="assets/hero2.png" class="absolute block w-full h-full object-cover" alt="Stationery & Textbooks">
+        </div>
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img src="assets/hero3.png" class="absolute block w-full h-full object-cover" alt="Sports & Supporter Items">
+        </div>
+      </div>
+      <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4" data-carousel-prev>
+        <span class="text-white text-3xl">&#10094;</span>
+      </button>
+      <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4" data-carousel-next>
+        <span class="text-white text-3xl">&#10095;</span>
+      </button>
+    </div>
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-40">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">Welcome to SkoolSwap</h1>
+      <p class="text-lg md:text-2xl mb-6">Affordable school items for every learner</p>
+      <a href="#features" class="bg-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">Learn More</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 px-6 md:px-20 bg-gray-100 text-center">
+    <h2 class="text-3xl font-bold mb-10">Why SkoolSwap?</h2>
+    <p class="max-w-2xl mx-auto text-lg">
+      SkoolSwap connects schools and parents, making school essentials affordable and easy to access. 
+      Parents can shop online for uniforms, stationery, textbooks, sports gear, and supporter items in one place.
+    </p>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-20 px-6 md:px-20 bg-white">
+    <h2 class="text-3xl font-bold text-center mb-10">Our Features</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="p-6 bg-gray-50 shadow-lg rounded-xl hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold mb-2">Affordable Items</h3>
+        <p>Uniforms, stationery, textbooks, and sports gear at prices that families can afford.</p>
+      </div>
+      <div class="p-6 bg-gray-50 shadow-lg rounded-xl hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold mb-2">Easy Access</h3>
+        <p>Order online anytime and get all school essentials delivered straight to you.</p>
+      </div>
+      <div class="p-6 bg-gray-50 shadow-lg rounded-xl hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold mb-2">Community Support</h3>
+        <p>Support learners, schools, and staff with items like jerseys, sports kits, and school supplies.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section id="mission" class="py-20 px-6 md:px-20 text-center bg-gray-100">
+    <h2 class="text-3xl font-bold mb-6">Our Mission</h2>
+    <p class="max-w-2xl mx-auto text-lg mb-10">
+      At SkoolSwap, we believe no child should miss out on education because of unaffordable school items. 
+      We’re building a simple platform to connect parents, learners, and schools in one place, making it easy to access 
+      school uniforms, stationery, textbooks, sports gear, and supporter items like jerseys for staff and learners.
+    </p>
+    <img src="assets/hero2.jpg" alt="Our Mission" class="rounded-xl shadow-lg mx-auto max-h-80 object-cover">
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-6 md:px-20 text-center bg-white">
+    <h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
+    <p class="mb-6">Want to bring SkoolSwap to your school or community?</p>
+    <a href="mailto:info@skoolswap.co.za" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">Email Us</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-10">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+      <div>
+        <img src="assets/logo.png" alt="SkoolSwap" class="h-12 mb-4">
+        <p>Affordable school items for every learner.</p>
+      </div>
+      <div>
+        <h3 class="font-bold mb-4">Quick Links</h3>
+        <ul class="space-y-2">
+          <li><a href="#home" class="hover:text-white">Home</a></li>
+          <li><a href="#about" class="hover:text-white">About</a></li>
+          <li><a href="#features" class="hover:text-white">Features</a></li>
+          <li><a href="#mission" class="hover:text-white">Mission</a></li>
+          <li><a href="#contact" class="hover:text-white">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold mb-4">Follow Us</h3>
+        <div class="flex gap-4">
+          <a href="#" class="hover:text-white">Facebook</a>
+          <a href="#" class="hover:text-white">Twitter</a>
+          <a href="#" class="hover:text-white">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-10 text-sm border-t border-gray-700 pt-6">
+      &copy; 2025 SkoolSwap. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
