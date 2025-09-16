@@ -1,135 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SkoolSwap</title>
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Flowbite CDN for carousel -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkoolSwap - Improved Carousel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet">
+    <style>
+        .carousel-container {
+            height: 500px;
+            position: relative;
+            overflow: hidden;
+            background-color: #f8fafc; /* Light grey background for carousel */
+        }
+        @media (max-width: 768px) {
+            .carousel-container {
+                height: 400px;
+            }
+        }
+        @media (max-width: 640px) {
+            .carousel-container {
+                height: 300px;
+            }
+        }
+		.carousel-image {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			object-position: center;
+		}
+		.carousel-container {
+			height: 900px; /* Increase this until the full image fits */
+		}
+		  /* Specific styling for the sports image */
+       	.carousel-sport {
+            width: 100%;
+            height: 100%;
+			object-fit: cover; /* Changed from contain to cover to zoom out */
+            object-position: center; /* Center the image */
+		}
+
+        .nav-link {
+            scroll-margin-top: 80px;
+        }
+        .carousel-control {
+            background-color: rgba(248, 250, 252, 0.7); /* Light grey background for arrows */
+            transition: background-color 0.3s ease;
+        }
+        .carousel-control:hover {
+            background-color: rgba(248, 250, 252, 0.9); /* Slightly darker on hover */
+        }
+        
+        /* New styles for feature icons */
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            margin: 0 auto 16px auto;
+        }
+        .feature-icon img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <header class="fixed w-full bg-white shadow z-50">
+        <nav class="flex items-center justify-between px-6 py-3">
+            <img src="assets/logo.png" alt="SkoolSwap Logo" class="h-10">
+            <ul class="hidden md:flex gap-6 font-medium">
+                <li><a href="#home" class="hover:text-blue-600 nav-link">Home</a></li>
+                <li><a href="#about" class="hover:text-blue-600 nav-link">About</a></li>
+                <li><a href="#features" class="hover:text-blue-600 nav-link">Features</a></li>
+                <li><a href="#mission" class="hover:text-blue-600 nav-link">Mission</a></li>
+                <li><a href="#contact" class="hover:text-blue-600 nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <!-- Navbar -->
-  <header class="fixed w-full bg-white shadow z-50">
-    <nav class="flex items-center justify-between px-6 py-3">
-      <img src="assets/logo.png" alt="SkoolSwap Logo" class="h-10">
-      <ul class="hidden md:flex gap-6 font-medium">
-        <li><a href="#home" class="hover:text-blue-600">Home</a></li>
-        <li><a href="#about" class="hover:text-blue-600">About</a></li>
-        <li><a href="#features" class="hover:text-blue-600">Features</a></li>
-        <li><a href="#mission" class="hover:text-blue-600">Mission</a></li>
-        <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Hero Carousel -->
-  <section id="home" class="pt-20 relative">
-    <div id="hero-carousel" class="relative w-full" data-carousel="slide">
-      <div class="relative h-[500px] overflow-hidden">
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img src="assets/hero1.png" class="absolute block w-full h-full object-cover" alt="Uniforms">
+    <!-- Hero Carousel -->
+    <section id="home" class="pt-19.5 relative nav-link">
+        <div id="hero-carousel" class="relative w-full">
+            <div class="carousel-container overflow-hidden">
+                <!-- Carousel items -->
+                <div class="duration-700 ease-in-out" data-carousel-item>
+                    <img src="assets/hero1.png" class="carousel-image" alt="School Uniforms">
+                </div>
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="assets/sport.jpg" class="carousel-sport" alt="Sports Equipment">
+                </div>
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="assets/hero4.png" class="carousel-image" alt="Sports & Supporter Items">
+                </div>
+            </div>
+            <!-- Carousel navigation buttons -->
+            <button type="button" class="carousel-control absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer" data-carousel-prev>
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/80 hover:bg-white">
+                    <svg class="w-4 h-4 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                    </svg>
+                </span>
+            </button>
+            <button type="button" class="carousel-control absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer" data-carousel-next>
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/80 hover:bg-white">
+                    <svg class="w-4 h-4 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                    </svg>
+                </span>
+            </button>
         </div>
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img src="assets/hero2.png" class="absolute block w-full h-full object-cover" alt="Stationery & Textbooks">
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-40">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Welcome to SkoolSwap</h1>
+            <p class="text-lg md:text-2xl mb-6">Marketplace for new & preloved school items</p>
+            <a href="#features" class="bg-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Learn More</a>
         </div>
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img src="assets/hero3.png" class="absolute block w-full h-full object-cover" alt="Sports & Supporter Items">
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 md:px-20 bg-gray-100 text-center nav-link">
+        <h2 class="text-3xl font-bold mb-10">Why SkoolSwap?</h2>
+        <p class="max-w-2xl mx-auto text-lg">
+            SkoolSwap connects schools, parents, and learners. Sell and buy safely within your community 
+            with verified school shops, secure escrow payments, and a growing marketplace for uniforms, stationery, sports kits, and more.
+        </p>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-6 md:px-20 bg-white nav-link">
+        <h2 class="text-3xl font-bold text-center mb-10">Our Features</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Verified School Shops -->
+            <div class="p-6 bg-gray-50 shadow-lg rounded-xl hover:shadow-xl transition text-center">
+                <div class="feature-icon bg-blue-100">
+                    <!-- Replace with your actual verified shops PNG image -->
+                    <img src="assets/verified.png" alt="Verified Shops Icon">
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Verified School Shops</h3>
+                <p class="text-gray-600">Official school shops marked as verified. Parents & learners can trust the source and school receives revenue from every transaction.</p>
+            </div>
+            
+            <!-- Free Selling -->
+            <div class="p-6 bg-gray-50 shadow-lg rounded-xl hover:shadow-xl transition text-center">
+                <div class="feature-icon bg-green-100">
+                    <!-- Replace with your actual free selling PNG image -->
+                    <img src="assets/shopping.png" alt="Free Selling Icon">
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Free Selling</h3>
+                <p class="text-gray-600">Schools, parents, and learners can sell their preloved items completely free. Buyers pay a 5% service fee—your items, your money, no fees for sellers.</p>
+            </div>
+            
+            <!-- Escrow Payments -->
+            <div class="p-6 bg-gray-50 shadow-lg rounded-xl hover:shadow-xl transition text-center">
+                <div class="feature-icon bg-purple-100">
+                    <!-- Replace with your actual escrow payments PNG image -->
+                    <img src="assets/private-account.png" alt="Escrow Payments Icon">
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Escrow Payments</h3>
+                <p class="text-gray-600">Buyers pay into a secure escrow system. Funds are released to the seller once the item is confirmed delivered, keeping transactions safe.</p>
+            </div>
+            
+            <!-- Delivery Coming Soon -->
+            <div class="p-6 bg-gray-50 shadow-lg rounded-xl hover:shadow-xl transition text-center">
+                <div class="feature-icon bg-yellow-100">
+                    <!-- Replace with your actual delivery PNG image -->
+                    <img src="assets/fast-shipping.png" alt="Delivery Icon">
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Delivery Coming Soon</h3>
+                <p class="text-gray-600">We're adding delivery options to make sending items easier. Soon you'll be able to choose PAXI, PostNet, or local courier services.</p>
+            </div>
         </div>
-      </div>
-      <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4" data-carousel-prev>
-        <span class="text-white text-3xl">&#10094;</span>
-      </button>
-      <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4" data-carousel-next>
-        <span class="text-white text-3xl">&#10095;</span>
-      </button>
-    </div>
-    <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-40">
-      <h1 class="text-4xl md:text-6xl font-bold mb-4">Welcome to SkoolSwap</h1>
-      <p class="text-lg md:text-2xl mb-6">Affordable school items for every learner</p>
-      <a href="#features" class="bg-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">Learn More</a>
-    </div>
-  </section>
+    </section>
 
-  <!-- About Section -->
-  <section id="about" class="py-20 px-6 md:px-20 bg-gray-100 text-center">
-    <h2 class="text-3xl font-bold mb-10">Why SkoolSwap?</h2>
-    <p class="max-w-2xl mx-auto text-lg">
-      SkoolSwap connects schools and parents, making school essentials affordable and easy to access. 
-      Parents can shop online for uniforms, stationery, textbooks, sports gear, and supporter items in one place.
-    </p>
-  </section>
+    <!-- Mission Section -->
+    <section id="mission" class="py-20 px-6 md:px-20 text-center bg-gray-100 nav-link">        
+        <img src="assets/schoolboardmission.png" alt="Our Mission" class="rounded-xl shadow-lg mx-auto w-full max-w-3xl h-auto object-contain">
+    </section>
 
-  <!-- Features Section -->
-  <section id="features" class="py-20 px-6 md:px-20 bg-white">
-    <h2 class="text-3xl font-bold text-center mb-10">Our Features</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="p-6 bg-gray-50 shadow-lg rounded-xl hover:shadow-xl transition">
-        <h3 class="text-xl font-semibold mb-2">Affordable Items</h3>
-        <p>Uniforms, stationery, textbooks, and sports gear at prices that families can afford.</p>
-      </div>
-      <div class="p-6 bg-gray-50 shadow-lg rounded-xl hover:shadow-xl transition">
-        <h3 class="text-xl font-semibold mb-2">Easy Access</h3>
-        <p>Order online anytime and get all school essentials delivered straight to you.</p>
-      </div>
-      <div class="p-6 bg-gray-50 shadow-lg rounded-xl hover:shadow-xl transition">
-        <h3 class="text-xl font-semibold mb-2">Community Support</h3>
-        <p>Support learners, schools, and staff with items like jerseys, sports kits, and school supplies.</p>
-      </div>
-    </div>
-  </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 md:px-20 text-center bg-gray-100 nav-link">
+        <h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
+        <p class="mb-6">Interested in joining SkoolSwap or setting up your school shop?</p>
+        <a href="mailto:info@skoolswap.co.za" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Email Us</a>
+    </section>
 
-  <!-- Mission Section -->
-  <section id="mission" class="py-20 px-6 md:px-20 text-center bg-gray-100">
-    <h2 class="text-3xl font-bold mb-6">Our Mission</h2>
-    <p class="max-w-2xl mx-auto text-lg mb-10">
-      At SkoolSwap, we believe no child should miss out on education because of unaffordable school items. 
-      We’re building a simple platform to connect parents, learners, and schools in one place, making it easy to access 
-      school uniforms, stationery, textbooks, sports gear, and supporter items like jerseys for staff and learners.
-    </p>
-    <img src="assets/hero2.jpg" alt="Our Mission" class="rounded-xl shadow-lg mx-auto max-h-80 object-cover">
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-20 px-6 md:px-20 text-center bg-white">
-    <h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
-    <p class="mb-6">Want to bring SkoolSwap to your school or community?</p>
-    <a href="mailto:info@skoolswap.co.za" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">Email Us</a>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 py-10">
-    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8">
-      <div>
-        <img src="assets/logo.png" alt="SkoolSwap" class="h-12 mb-4">
-        <p>Affordable school items for every learner.</p>
-      </div>
-      <div>
-        <h3 class="font-bold mb-4">Quick Links</h3>
-        <ul class="space-y-2">
-          <li><a href="#home" class="hover:text-white">Home</a></li>
-          <li><a href="#about" class="hover:text-white">About</a></li>
-          <li><a href="#features" class="hover:text-white">Features</a></li>
-          <li><a href="#mission" class="hover:text-white">Mission</a></li>
-          <li><a href="#contact" class="hover:text-white">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="font-bold mb-4">Follow Us</h3>
-        <div class="flex gap-4">
-          <a href="#" class="hover:text-white">Facebook</a>
-          <a href="#" class="hover:text-white">Twitter</a>
-          <a href="#" class="hover:text-white">Instagram</a>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-10">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+            <div>
+                <img src="assets/logo.png" alt="SkoolSwap" class="h-12 mb-4">
+                <p>Marketplace for new & preloved school items.</p>
+            </div>
+            <div>
+                <h3 class="font-bold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
+                    <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
+                    <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
+                    <li><a href="#mission" class="hover:text-white transition-colors">Mission</a></li>
+                    <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-4">Follow Us</h3>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white transition-colors">Facebook</a>
+                    <a href="#" class="hover:text-white transition-colors">Twitter</a>
+                    <a href="#" class="hover:text-white transition-colors">Instagram</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="text-center mt-10 text-sm border-t border-gray-700 pt-6">
-      &copy; 2025 SkoolSwap. All rights reserved.
-    </div>
-  </footer>
+        <div class="text-center mt-10 text-sm border-t border-gray-700 pt-6">
+            &copy; 2025 SkoolSwap. All rights reserved.
+        </div>
+    </footer>
 
+    <script>
+        // Initialize carousel functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set up carousel
+            const carousel = document.getElementById('hero-carousel');
+            if (carousel) {
+                // Initialize carousel with JavaScript
+                const items = carousel.querySelectorAll('[data-carousel-item]');
+                let currentIndex = 0;
+                const totalItems = items.length;
+                
+                // Show first item
+                if (items.length > 0) {
+                    items[0].classList.remove('hidden');
+                }
+                
+                // Function to show specific slide
+                function showSlide(index) {
+                    // Hide all slides
+                    items.forEach(item => item.classList.add('hidden'));
+                    
+                    // Show the selected slide
+                    items[index].classList.remove('hidden');
+                    currentIndex = index;
+                }
+                
+                // Set up previous button - only go forward in one direction (right)
+                const prevButton = carousel.querySelector('[data-carousel-prev]');
+                if (prevButton) {
+                    prevButton.addEventListener('click', function() {
+                        let nextIndex = (currentIndex - 1 + totalItems) % totalItems;
+                        showSlide(nextIndex);
+                    });
+                }
+                
+                // Set up next button - only go forward in one direction (right)
+                const nextButton = carousel.querySelector('[data-carousel-next]');
+                if (nextButton) {
+                    nextButton.addEventListener('click', function() {
+                        let nextIndex = (currentIndex + 1) % totalItems;
+                        showSlide(nextIndex);
+                    });
+                }
+                
+                // Auto-advance the carousel every 5 seconds
+                setInterval(function() {
+                    let nextIndex = (currentIndex + 1) % totalItems;
+                    showSlide(nextIndex);
+                }, 5000);
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
