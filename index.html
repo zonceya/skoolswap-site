@@ -6,119 +6,227 @@
     <title>SkoolSwap</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet">
-    <style>
-        /* Carousel container */
-        .carousel-container {
-            position: relative;
-            overflow: hidden;
-            background-color: #f8fafc;
-            height: 500px; /* default desktop height */
-        }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Carousel container */
+    .carousel-container {
+        height: 500px;
+        position: relative;
+        overflow: hidden;
+        background-color: #f8fafc;
+    }
+    @media (max-width: 768px) { .carousel-container { height: 400px; } }
+    @media (max-width: 640px) { .carousel-container { height: 300px; } }
 
-        /* Larger desktops */
-        @media (min-width: 1024px) {
-            .carousel-container {
-                height: 900px;
-            }
-        }
+    /* Default image styling (for mobile) */
+    .carousel-image, .carousel-sport {
+        width: 100%;
+        height: auto;
+		max-height: 100%;
+        object-fit: contain; /* Show full image on mobile */
+        object-position: center;
+        background-color: #f8fafc;
+    }
 
-        /* Tablets */
-        @media (max-width: 768px) {
-            .carousel-container { height: 400px; }
-        }
-
-        /* Mobile */
-        @media (max-width: 640px) {
-            .carousel-container { height: 300px; }
-        }
-
-        /* Carousel images */
-        .carousel-image,
-        .carousel-sport {
+    /* Desktop-specific styles */
+    @media (min-width: 769px) {
+        .carousel-image, .carousel-sport {
             width: 100%;
-            height: 100%;
-            object-fit: contain; /* prevent cropping on desktop and mobile */
-            object-position: center;
-        }
-
-        /* Navbar scroll offset */
-        .nav-link { scroll-margin-top: 80px; }
-
-        /* Carousel arrow controls */
-        .carousel-control {
-            background-color: rgba(248, 250, 252, 0.7);
-            transition: background-color 0.3s ease;
-        }
-        .carousel-control:hover {
-            background-color: rgba(248, 250, 252, 0.9);
-        }
-
-        /* Feature icons */
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            margin: 0 auto 16px auto;
-        }
-        .feature-icon img {
-            max-width: 80%;
-            max-height: 80%;
             object-fit: contain;
         }
-    </style>
+       .carousel-item:nth-child(1) .carousel-image {
+	        width: 100%; 
+			height: 100%;
+            object-position: 70% 100%;
+        }
+        .carousel-item:nth-child(2) .carousel-sport {
+            object-position: 70% 40%;
+        }
+        .carousel-item:nth-child(3) .carousel-image {
+            object-position: 50% 25%;
+        }
+        
+        
+        /* Larger controls for desktop */
+        .carousel-control span {
+            width: 50px;
+            height: 50px;
+        }
+        
+        .carousel-control svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    /* Navbar scroll margin */
+    .nav-link { scroll-margin-top: 80px; }
+
+    /* Carousel controls */
+    .carousel-control {
+        background-color: rgba(248, 250, 252, 0.7);
+        transition: background-color 0.3s ease;
+    }
+    .carousel-control:hover { background-color: rgba(248, 250, 252, 0.9); }
+
+    /* Features icons */
+    .feature-icon {
+        width: 60px; height: 60px;
+        display: flex; align-items: center; justify-content: center;
+        border-radius: 12px; margin: 0 auto 16px auto;
+    }
+    .feature-icon img {
+        max-width: 80%; max-height: 80%; object-fit: contain;
+    }
+
+    /* Carousel indicators */
+    .carousel-indicators {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        position: absolute;
+        bottom: 1.25rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .carousel-indicators button {
+        width: 12px;
+        height: 12px;
+        border-radius: 9999px;
+        background-color: rgba(255,255,255,0.5);
+        transition: background-color 0.3s;
+    }
+    .carousel-indicators button.active { background-color: white; }
+    @media (max-width: 640px) {
+        .carousel-indicators button {
+            width: 18px; height: 18px; margin: 0 6px;
+        }
+    }
+    
+    /* Mobile menu */
+    .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 70%;
+        max-width: 300px;
+        background: white;
+        box-shadow: 4px 4px 6px -1px rgba(0, 0, 0, 0.1);
+        z-index: 40;
+        border-bottom-right-radius: 0.5rem;
+    }
+    .mobile-menu.open {
+        display: block;
+    }
+    .mobile-menu ul {
+        padding: 1rem;
+    }
+    .mobile-menu li {
+        margin-bottom: 0.5rem;
+    }
+    .mobile-menu a {
+        display: block;
+        padding: 0.75rem;
+        border-radius: 0.375rem;
+        transition: background-color 0.3s;
+    }
+    .mobile-menu a:hover {
+        background-color: #f3f4f6;
+    }
+    
+    /* Logo and menu button positioning */
+    .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .logo-container {
+        display: flex;
+        align-items: center;
+    }
+</style>
 </head>
 <body class="bg-gray-50">
 
     <!-- Navbar -->
     <header class="fixed w-full bg-white shadow z-50">
-        <nav class="flex items-center justify-between px-6 py-3">
-            <img src="assets/logo.png" alt="SkoolSwap Logo" class="h-10">
-            <ul class="hidden md:flex gap-6 font-medium">
+        <nav class="px-6 py-3">
+            <div class="nav-container">
+                <div class="logo-container">
+                    <!-- Mobile Menu Button - Now on the left -->
+                    <button id="mobile-menu-button" class="md:hidden text-gray-700 mr-4">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                    <img src="assets/logo.png" alt="SkoolSwap Logo" class="h-10">
+                </div>
+                
+                <!-- Desktop Menu -->
+                <ul class="hidden md:flex gap-6 font-medium">
+                    <li><a href="#home" class="hover:text-blue-600 nav-link">Home</a></li>
+                    <li><a href="#about" class="hover:text-blue-600 nav-link">About</a></li>
+                    <li><a href="#features" class="hover:text-blue-600 nav-link">Features</a></li>
+                    <li><a href-#mission" class="hover:text-blue-600 nav-link">Mission</a></li>
+                    <li><a href="#contact" class="hover:text-blue-600 nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu - Now appears from the left -->
+        <div id="mobile-menu" class="mobile-menu">
+            <ul class="font-medium">
                 <li><a href="#home" class="hover:text-blue-600 nav-link">Home</a></li>
                 <li><a href="#about" class="hover:text-blue-600 nav-link">About</a></li>
                 <li><a href="#features" class="hover:text-blue-600 nav-link">Features</a></li>
                 <li><a href="#mission" class="hover:text-blue-600 nav-link">Mission</a></li>
                 <li><a href="#contact" class="hover:text-blue-600 nav-link">Contact</a></li>
             </ul>
-        </nav>
+        </div>
     </header>
 
     <!-- Hero Carousel -->
-    <section id="home" class="pt-20 relative nav-link">
-        <div id="hero-carousel" class="relative w-full">
-            <div class="carousel-container">
-                <!-- Carousel items -->
-                <div class="duration-700 ease-in-out" data-carousel-item>
+    <section id="home" class="pt-20 relative">
+        <div id="hero-carousel" class="relative w-full overflow-hidden carousel-container">
+            <div class="carousel-inner flex transition-transform duration-500 ease-in-out">
+                <div class="carousel-item flex-shrink-0 w-full flex justify-center items-center">
                     <img src="assets/hero1.png" class="carousel-image" alt="School Uniforms">
                 </div>
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <div class="carousel-item flex-shrink-0 w-full flex justify-center items-center">
                     <img src="assets/sport.png" class="carousel-sport" alt="Sports Equipment">
                 </div>
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <div class="carousel-item flex-shrink-0 w-full flex justify-center items-center">
                     <img src="assets/hero4.png" class="carousel-image" alt="Sports & Supporter Items">
                 </div>
             </div>
-            <!-- Carousel navigation buttons -->
+
+            <!-- Prev / Next Buttons -->
             <button type="button" class="carousel-control absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer" data-carousel-prev>
                 <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/80 hover:bg-white">
-                    <svg class="w-4 h-4 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <svg class="w-4 h-4 text-gray-800" fill="none" viewBox="0 0 6 10">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
                     </svg>
                 </span>
             </button>
             <button type="button" class="carousel-control absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer" data-carousel-next>
                 <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/80 hover:bg-white">
-                    <svg class="w-4 h-4 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <svg class="w-4 h-4 text-gray-800" fill="none" viewBox="0 0 6 10">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
                     </svg>
                 </span>
             </button>
+
+            <!-- Indicators -->
+            <div class="carousel-indicators">
+                <button class="active" data-slide="0"></button>
+                <button data-slide="1"></button>
+                <button data-slide="2"></button>
+            </div>
         </div>
-        <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-40">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4">Welcome to SkoolSwap</h1>
+
+        <!-- Overlay text -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-40 px-4">
+            <h1 class="text-3xl md:text-6xl font-bold mb-4">Welcome to SkoolSwap</h1>
             <p class="text-lg md:text-2xl mb-6">Marketplace for new & preloved school items</p>
             <a href="#features" class="bg-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Learn More</a>
         </div>
@@ -149,21 +257,21 @@
                     <img src="assets/shopping.png" alt="Free Selling Icon">
                 </div>
                 <h3 class="text-xl font-semibold mb-2">Free Selling</h3>
-                <p class="text-gray-600">Schools, parents, and learners can sell their preloved items completely free. Buyers pay a 5% service fee—your items, your money, no fees for sellers.</p>
+                <p class="text-gray-600">Schools, parents, and learners can sell their preloved items completely free. Buyers pay a 5% service fee.</p>
             </div>
             <div class="p-6 bg-gray-50 shadow-lg rounded-xl hover:shadow-xl transition text-center">
                 <div class="feature-icon bg-purple-100">
                     <img src="assets/private-account.png" alt="Escrow Payments Icon">
                 </div>
                 <h3 class="text-xl font-semibold mb-2">Escrow Payments</h3>
-                <p class="text-gray-600">Buyers pay into a secure escrow system. Funds are released to the seller once the item is confirmed delivered, keeping transactions safe.</p>
+                <p class="text-gray-600">Buyers pay into a secure escrow system. Funds are released to the seller once the item is confirmed delivered.</p>
             </div>
             <div class="p-6 bg-gray-50 shadow-lg rounded-xl hover:shadow-xl transition text-center">
                 <div class="feature-icon bg-yellow-100">
                     <img src="assets/fast-shipping.png" alt="Delivery Icon">
                 </div>
                 <h3 class="text-xl font-semibold mb-2">Delivery Coming Soon</h3>
-                <p class="text-gray-600">We're adding delivery options to make sending items easier. Soon you'll be able to choose PAXI, PostNet, or local courier services.</p>
+                <p class="text-gray-600">Soon you'll be able to choose PAXI, PostNet, or local courier services.</p>
             </div>
         </div>
     </section>
@@ -176,4 +284,119 @@
     <!-- Contact Section -->
     <section id="contact" class="py-20 px-6 md:px-20 text-center bg-gray-100 nav-link">
         <h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
-        <p class="mb-6">Interested in joining
+        <p class="mb-6">Interested in joining SkoolSwap or setting up your school shop?</p>
+        <a href="mailto:info@skoolswap.co.za" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Email Us</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-10">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+            <div>
+                <img src="assets/logo.png" alt="SkoolSwap" class="h-12 mb-4">
+                <p>Marketplace for new & preloved school items.</p>
+            </div>
+            <div>
+                <h3 class="font-bold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
+                    <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
+                    <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
+                    <li><a href="#mission" class="hover:text-white transition-colors">Mission</a></li>
+                    <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-4">Follow Us</h3>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white transition-colors">Facebook</a>
+                    <a href="#" class="hover:text-white transition-colors">Twitter</a>
+                    <a href="#" class="hover:text-white transition-colors">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-10 text-sm border-t border-gray-700 pt-6">
+            &copy; 2025 SkoolSwap. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const carousel = document.getElementById('hero-carousel');
+        const inner = carousel.querySelector('.carousel-inner');
+        const items = carousel.querySelectorAll('.carousel-item');
+        const indicators = carousel.querySelectorAll('.carousel-indicators button');
+        const totalItems = items.length;
+        let currentIndex = 0;
+
+        function updateSlide() {
+            const offset = -currentIndex * 100;
+            inner.style.transform = `translateX(${offset}%)`;
+            indicators.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+        }
+
+        // Prev / Next buttons
+        carousel.querySelector('[data-carousel-prev]').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+            updateSlide();
+        });
+        carousel.querySelector('[data-carousel-next]').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalItems;
+            updateSlide();
+        });
+
+        // Auto slide
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalItems;
+            updateSlide();
+        }, 5000);
+
+        // Swipe support
+        let startX = 0, endX = 0;
+        carousel.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+        carousel.addEventListener('touchmove', e => endX = e.touches[0].clientX);
+        carousel.addEventListener('touchend', () => {
+            if (startX - endX > 50) currentIndex = (currentIndex + 1) % totalItems;
+            else if (endX - startX > 50) currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+            updateSlide(); startX = endX = 0;
+        });
+
+        // Indicators click
+        indicators.forEach(dot => dot.addEventListener('click', () => {
+            currentIndex = parseInt(dot.dataset.slide);
+            updateSlide();
+        }));
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+                
+                // Close mobile menu if open
+                mobileMenu.classList.remove('open');
+            });
+        });
+
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                mobileMenu.classList.remove('open');
+            }
+        });
+
+        updateSlide();
+    });
+    </script>
+
+</body>
+</html>
