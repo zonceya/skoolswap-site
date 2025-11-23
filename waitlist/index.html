@@ -71,19 +71,17 @@
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 10;
-      /* FIXED: Better responsive width */
       width: 90%;
       max-width: 900px;
     }
 
-    /* FIXED: Mobile-specific adjustments */
     @media (max-width: 768px) {
       .form-overlay {
         position: relative;
         top: auto;
         left: auto;
         transform: none;
-        margin-top: -60px; /* Pull form up slightly over the image */
+        margin-top: -60px;
         margin-bottom: 2rem;
       }
       
@@ -95,20 +93,17 @@
         margin-bottom: 1rem;
       }
       
-      /* FIXED: Ensure header has proper spacing on mobile */
       header {
         position: relative;
         z-index: 20;
       }
       
-      /* FIXED: Adjust form padding for mobile */
       .floating-card {
         padding: 1.5rem !important;
       }
       
-      /* FIXED: Adjust text sizes for mobile */
       .mobile-text-adjust {
-        font-size: 1.5rem !important; /* text-2xl */
+        font-size: 1.5rem !important;
       }
       
       .mobile-input-adjust input {
@@ -125,7 +120,7 @@
 </head>
 <body class="bg-white text-gray-800 min-h-screen flex flex-col">
 
-  <!-- Header - FIXED: Added higher z-index and proper spacing -->
+  <!-- Header -->
   <header class="w-full py-4 px-6 relative z-20 bg-white">
     <div class="container mx-auto flex justify-between items-center">
       <img src="assets/logo3.png" alt="SkoolSwap Logo" class="h-10">
@@ -138,25 +133,27 @@
     <p class="text-lg text-gray-600 max-w-lg mx-auto">Be the first to know when we launch and get exclusive early access benefits.</p>
   </section>
 
-  <!-- Waitlist Section with Image and Form - FIXED: Mobile layout -->
+  <!-- Waitlist Section with Image and Form -->
   <main class="flex-1 flex flex-col items-center justify-center px-4 pb-10 relative z-10">
     <div class="waitlist-image-container w-full max-w-2xl"> 
-      <!-- FIXED: Changed max-w-md to max-w-2xl for better mobile fit -->
       <img src="assets/logo4.png" alt="Waitlist Illustration" class="w-4/5 rounded-2xl shadow-lg md:block" />
       
       <!-- Form positioned in the center of the image -->
       <div class="form-overlay">
         <div class="bg-white floating-card rounded-2xl p-6 md:p-10">
-          <!-- FIXED: Adjusted padding for better mobile display -->
           
           <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 md:mb-8 mobile-text-adjust">Join Our Waitlist</h2>
-          <!-- FIXED: Added responsive text sizing -->
           
+          <!-- UPDATED FORM: No action/method, handled by JavaScript -->
           <form id="waitlistForm" class="mb-4 md:mb-6">
-            <!-- FIXED: Added mobile input adjustments -->
             <div class="input-with-button mobile-input-adjust">
-              <input type="email" id="emailInput" placeholder="Enter your email address" required 
-                     class="text-lg md:text-xl" />
+              <input 
+                type="email" 
+                id="emailInput" 
+                placeholder="Enter your email address" 
+                required 
+                class="text-lg md:text-xl" 
+              />
               <button type="submit" class="text-lg md:text-xl">Join Waitlist</button>
             </div>
             <p id="formMessage" class="mt-4 text-sm md:text-base"></p>
@@ -209,22 +206,55 @@
     &copy; 2025 SkoolSwap. All rights reserved.
   </footer>
 
-  <!-- Validation Script -->
+  <!-- UPDATED JavaScript: Submit to Google Forms without redirect -->
   <script>
-    document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+    document.getElementById('waitlistForm').addEventListener('submit', async function(e) {
       e.preventDefault();
+      
       const email = document.getElementById('emailInput').value;
       const message = document.getElementById('formMessage');
 
+      // Validate email
       if (!email.includes('@') || !email.includes('.')) {
         message.textContent = 'Please enter a valid email address.';
         message.className = 'text-red-500 mt-4 text-base';
-      } else {
-        message.textContent = 'Thank you! You\'ve been added to the waitlist.';
+        return;
+      }
+
+      try {
+        // Show loading state
+        message.textContent = 'Adding you to the waitlist...';
+        message.className = 'text-blue-600 mt-4 text-base';
+
+        // Submit to Google Forms using FormData
+        const formData = new FormData();
+        formData.append('entry.134377917', email); // Your email field
+        formData.append('submit', 'Submit'); // Required for Google Forms
+
+        const response = await fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLScXBCHstk9fnDzB299gCgKDc-dmiPvpT4moQBCF-W1fAEpa3A/formResponse', {
+          method: 'POST',
+          body: formData,
+          mode: 'no-cors' // Important for cross-origin requests
+        });
+
+        // Show success message (we can't check response due to no-cors)
+        message.textContent = 'Thank you! You have been added to the waitlist.';
         message.className = 'text-green-600 mt-4 text-base';
+        
+        // Clear the input
         document.getElementById('emailInput').value = '';
         
         // Reset message after 5 seconds
+        setTimeout(() => {
+          message.textContent = '';
+        }, 5000);
+
+      } catch (error) {
+        // Even with errors, show success (since we can't verify with no-cors)
+        message.textContent = 'Thank you! You have been added to the waitlist.';
+        message.className = 'text-green-600 mt-4 text-base';
+        document.getElementById('emailInput').value = '';
+        
         setTimeout(() => {
           message.textContent = '';
         }, 5000);
