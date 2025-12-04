@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Deletion Instructions - SkoolSwap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        #searchResults { display: none; }
+        #searchResults.show { display: block; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <div class="max-w-4xl mx-auto p-6 py-10">
+        <!-- Header with Search -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6 border-b">
+            <h1 class="text-3xl font-bold">Data Deletion Instructions</h1>
+            <div class="relative w-full md:w-auto">
+                <div class="flex">
+                    <input type="text" id="siteSearchInput" placeholder="Search policies..." 
+                           class="w-full md:w-64 px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <button onclick="performSearch()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-r-lg font-medium">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div id="searchResults" class="absolute top-full mt-1 w-full md:w-96 bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-80 overflow-y-auto"></div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="prose max-w-none bg-white p-8 rounded-xl shadow-sm">
+            <p class="text-gray-600"><strong>Last updated:</strong> <span id="currentDate"></span></p>
+            <p>If you used Facebook Login or Google Sign-In, you can request deletion of your account and associated data.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">How to Request Deletion</h2>
+            <p>To delete your data:</p>
+            <ol class="list-decimal pl-5 mb-4">
+                <li>Email <a href="mailto:admin@skoolswap.co.za" class="text-blue-600 hover:underline">admin@skoolswap.co.za</a> with subject “Delete My Account”</li>
+                <li>Include the email you used to sign in</li>
+                <li>Your data will be removed within 7 days</li>
+            </ol>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">What Will Be Deleted</h2>
+            <ul class="list-disc pl-5 mb-4">
+                <li>Profile</li><li>Chat messages</li><li>Marketplace listings</li>
+                <li>Escrow/payout history (except required financial records)</li><li>Login tokens</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">What Cannot Be Deleted Immediately</h2>
+            <p>For legal and financial reasons, some transaction records must be stored for up to 5 years, as required by law.</p>
+        </div>
+
+        <div class="mt-8 text-center">
+            <a href="/" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"><i class="fas fa-arrow-left mr-2"></i> Back to Home</a>
+        </div>
+    </div>
+
+    <!-- SEARCH SCRIPT (Same as Privacy Policy) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const now = new Date();
+            document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        });
+        const pages = [
+            { title: "Privacy Policy", url: "/privacy", keywords: "privacy data collect information use share security rights children contact" },
+            { title: "Terms & Conditions", url: "/terms", keywords: "terms conditions account buying selling escrow payment prohibited items refunds disputes liability" },
+            { title: "Data Deletion Instructions", url: "/deletion", keywords: "deletion data delete account request email instructions" },
+            { title: "Community Guidelines", url: "/guidelines", keywords: "guidelines community honest respectful safe meet-ups allowed items fraud" }
+        ];
+        function performSearch() {
+            const query = document.getElementById('siteSearchInput').value.trim().toLowerCase();
+            const resultsDiv = document.getElementById('searchResults');
+            resultsDiv.innerHTML = '';
+            if (query.length < 2) {
+                resultsDiv.innerHTML = '<div class="p-4 text-gray-500">Please enter at least 2 characters</div>';
+                resultsDiv.classList.add('show');
+                return;
+            }
+            const matches = pages.filter(p => p.title.toLowerCase().includes(query) || p.keywords.includes(query));
+            if (matches.length === 0) {
+                resultsDiv.innerHTML = `<div class="p-4 text-gray-500">No results for "${query}"</div>`;
+            } else {
+                matches.forEach(p => {
+                    const a = document.createElement('a');
+                    a.href = p.url;
+                    a.className = 'block p-4 border-b hover:bg-gray-50';
+                    a.innerHTML = `<div class="font-semibold">${p.title}</div><div class="text-sm text-gray-600">${p.url}</div>`;
+                    resultsDiv.appendChild(a);
+                });
+            }
+            resultsDiv.classList.add('show');
+        }
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('#siteSearchInput') && !e.target.closest('#searchResults')) {
+                document.getElementById('searchResults').classList.remove('show');
+            }
+        });
+        document.getElementById('siteSearchInput').addEventListener('input', performSearch);
+    </script>
+</body>
+</html>

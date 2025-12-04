@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - SkoolSwap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        #searchResults { display: none; }
+        #searchResults.show { display: block; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <div class="max-w-4xl mx-auto p-6 py-10">
+        <!-- Header with Search -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6 border-b">
+            <h1 class="text-3xl font-bold">Privacy Policy</h1>
+            <div class="relative w-full md:w-auto">
+                <div class="flex">
+                    <input type="text" id="siteSearchInput" placeholder="Search policies..." 
+                           class="w-full md:w-64 px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <button onclick="performSearch()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-r-lg font-medium">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div id="searchResults" class="absolute top-full mt-1 w-full md:w-96 bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-80 overflow-y-auto"></div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="prose max-w-none bg-white p-8 rounded-xl shadow-sm">
+            <p class="text-gray-600"><strong>Last updated:</strong> <span id="currentDate"></span></p>
+            <p>SkoolSwap (“we”, “our”, or “us”) operates the SkoolSwap mobile application and website at skoolswap.co.za. This Privacy Policy explains how we collect, use and protect your information.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">1. Information We Collect</h2>
+            <h3 class="text-xl font-semibold mt-4 mb-2">1.1. Information You Provide</h3>
+            <ul class="list-disc pl-5 mb-4">
+                <li>Name</li><li>Email address</li><li>School name (optional)</li><li>Profile photo (optional)</li>
+                <li>Items you list for sale</li><li>Chat messages between buyers and sellers</li>
+                <li>Delivery/collection notes</li><li>Escrow approval and PIN confirmation details</li>
+            </ul>
+            <h3 class="text-xl font-semibold mt-4 mb-2">1.2. Automatically Collected Information</h3>
+            <ul class="list-disc pl-5 mb-4">
+                <li>Device information (Android version, model)</li><li>IP address</li><li>Login provider IDs (Google, Facebook)</li>
+                <li>Usage data and analytics</li><li>Crash logs</li>
+            </ul>
+            <h3 class="text-xl font-semibold mt-4 mb-2">1.3. Transaction Information</h3>
+            <p>Item information (price, photo, description), payment status, escrow confirmation, PIN verification logs, payout status to seller.</p>
+            <p><em>No banking card data is stored by SkoolSwap — payments are handled by external payment providers.</em></p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">2. How We Use Your Information</h2>
+            <p>We use your information to: create and manage your account; allow buying and selling; secure payments with an escrow/PIN system; prevent fraud; enable chat; improve app performance; provide customer support; show relevant marketplace content.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">3. Sharing of Information</h2>
+            <p>We only share data with: payment providers; Firebase / Cloudflare; schools (if reporting fraud or misuse, when required); law enforcement (when legally required). We never sell personal data.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">4. Data Storage & Security</h2>
+            <p>Data is stored securely using industry-standard encryption. Passwords are never visible to us. Chat messages and transaction logs are encrypted. Escrow PINs cannot be restored or viewed by staff.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">5. Your Rights</h2>
+            <p>You can: request account deletion; request your data; update or change your details; withdraw consent. To request deletion, visit: <a href="/deletion" class="text-blue-600 hover:underline">skoolswap.co.za/deletion</a></p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">6. Children’s Privacy</h2>
+            <p>The app is intended for parents and school communities, not children under 13.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">7. Contact Us</h2>
+            <p>Email: <a href="mailto:admin@skoolswap.co.za" class="text-blue-600 hover:underline">admin@skoolswap.co.za</a><br>Website: <a href="https://skoolswap.co.za" class="text-blue-600 hover:underline">skoolswap.co.za</a></p>
+        </div>
+
+        <div class="mt-8 text-center">
+            <a href="/" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"><i class="fas fa-arrow-left mr-2"></i> Back to Home</a>
+        </div>
+    </div>
+
+    <!-- SEARCH SCRIPT -->
+    <script>
+        // Set current date
+        document.addEventListener('DOMContentLoaded', function() {
+            const now = new Date();
+            document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        });
+
+        // Search functionality
+        const pages = [
+            { title: "Privacy Policy", url: "/privacy", keywords: "privacy data collect information use share security rights children contact" },
+            { title: "Terms & Conditions", url: "/terms", keywords: "terms conditions account buying selling escrow payment prohibited items refunds disputes liability" },
+            { title: "Data Deletion Instructions", url: "/deletion", keywords: "deletion data delete account request email instructions" },
+            { title: "Community Guidelines", url: "/guidelines", keywords: "guidelines community honest respectful safe meet-ups allowed items fraud" }
+        ];
+
+        function performSearch() {
+            const query = document.getElementById('siteSearchInput').value.trim().toLowerCase();
+            const resultsDiv = document.getElementById('searchResults');
+            resultsDiv.innerHTML = '';
+            
+            if (query.length < 2) {
+                resultsDiv.innerHTML = '<div class="p-4 text-gray-500">Please enter at least 2 characters</div>';
+                resultsDiv.classList.add('show');
+                return;
+            }
+
+            const matches = pages.filter(p => p.title.toLowerCase().includes(query) || p.keywords.includes(query));
+            
+            if (matches.length === 0) {
+                resultsDiv.innerHTML = `<div class="p-4 text-gray-500">No results for "${query}"</div>`;
+            } else {
+                matches.forEach(p => {
+                    const a = document.createElement('a');
+                    a.href = p.url;
+                    a.className = 'block p-4 border-b hover:bg-gray-50';
+                    a.innerHTML = `<div class="font-semibold">${p.title}</div><div class="text-sm text-gray-600">${p.url}</div>`;
+                    resultsDiv.appendChild(a);
+                });
+            }
+            resultsDiv.classList.add('show');
+        }
+
+        // Close results when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('#siteSearchInput') && !e.target.closest('#searchResults')) {
+                document.getElementById('searchResults').classList.remove('show');
+            }
+        });
+        document.getElementById('siteSearchInput').addEventListener('input', performSearch);
+    </script>
+</body>
+</html>
