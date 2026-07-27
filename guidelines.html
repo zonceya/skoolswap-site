@@ -1,27 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Community Guidelines - SkoolSwap</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community Guidelines · SkoolSwap</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        #searchResults { display: none; }
-        #searchResults.show { display: block; }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        #searchResults {
+            display: none;
+        }
+        #searchResults.show {
+            display: block;
+        }
+        .policy-section {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        .policy-subsection {
+            margin-top: 1.5rem;
+        }
+        .policy-list {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 0.75rem 0 1rem 0;
+        }
+        .policy-list li {
+            margin-bottom: 0.4rem;
+        }
+        .guideline-highlight {
+            background: #f0f7ff;
+            padding: 0.75rem 1.25rem;
+            border-left: 4px solid #3b82f6;
+            border-radius: 0.25rem;
+            margin: 1.25rem 0;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
     <div class="max-w-4xl mx-auto p-6 py-10">
         <!-- Header with Search -->
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6 border-b">
-            <h1 class="text-3xl font-bold">Community Guidelines</h1>
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6 border-b border-gray-200">
+            <h1 class="text-3xl font-bold tracking-tight">Community Guidelines</h1>
             <div class="relative w-full md:w-auto">
                 <div class="flex">
-                    <input type="text" id="siteSearchInput" placeholder="Search policies..." 
-                           class="w-full md:w-64 px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <input type="text" id="siteSearchInput" placeholder="Search policies…"
+                        class="w-full md:w-64 px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
                     <button onclick="performSearch()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-r-lg font-medium">
                         <i class="fas fa-search"></i>
                     </button>
@@ -30,47 +59,219 @@
             </div>
         </div>
 
-        <!-- Content -->
+        <!-- Community Guidelines – full content with improved spacing -->
         <div class="prose max-w-none bg-white p-8 rounded-xl shadow-sm">
+
             <p class="text-gray-600"><strong>Last updated:</strong> <span id="currentDate"></span></p>
-            <p>We want SkoolSwap to be a safe and trusted marketplace for school communities.</p>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">1. Be Honest</h2>
-            <p>Describe items truthfully; Show real photos; Do not hide damage.</p>
+            <p class="mt-4">Welcome to the SkoolSwap community.</p>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">2. Be Respectful</h2>
-            <p>No harassment; No bullying; No profanity; Treat school community members respectfully.</p>
+            <p>Our goal is to create a trusted marketplace where parents, learners, guardians, educators, and school communities can safely buy and sell school-related items. These Community Guidelines explain the standards we expect from everyone using SkoolSwap.</p>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">3. Safe Meet-Ups</h2>
-            <p>Meet at school or safe public places; Confirm identity before handing items; Never exchange items without app confirmation.</p>
+            <p>Failure to follow these guidelines may result in the removal of listings, temporary restrictions, or permanent suspension of your account.</p>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">4. Allowed Items</h2>
-            <p>School uniforms; Books; Bags; Sports gear; Approved school accessories.</p>
+            <!-- 1. Honest -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">1. Be Honest</h2>
+                <p>Always provide accurate information when creating listings.</p>
+                <p>This includes:</p>
+                <ul class="policy-list">
+                    <li>Using clear and truthful titles.</li>
+                    <li>Uploading photographs of the actual item.</li>
+                    <li>Describing the item's condition honestly.</li>
+                    <li>Disclosing any damage, defects, or missing parts.</li>
+                    <li>Using the correct school, category, and size where applicable.</li>
+                </ul>
+                <p>Do not use misleading descriptions or edited images that misrepresent the item.</p>
+            </section>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">5. Not Allowed</h2>
-            <p>Weapons; Electronics without proof of ownership; Broken or unusable items; Fake uniforms; Stolen goods.</p>
+            <!-- 2. Respect -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">2. Treat Others with Respect</h2>
+                <p>All users should communicate respectfully.</p>
+                <p>Do not:</p>
+                <ul class="policy-list">
+                    <li>Harass or intimidate others.</li>
+                    <li>Use abusive or offensive language.</li>
+                    <li>Threaten violence.</li>
+                    <li>Bully or discriminate against anyone.</li>
+                    <li>Send unwanted or repeated messages.</li>
+                </ul>
+                <p>Respectful communication helps keep SkoolSwap safe for everyone.</p>
+            </section>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">6. Fraud Prevention</h2>
-            <p>Use escrow only; Never accept cash; Never release items without the PIN; Report suspicious activity immediately.</p>
-        </div>
+            <!-- 3. Right to sell -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">3. Sell Only Items You Have the Right to Sell</h2>
+                <p>You must own the item or have permission to sell it.</p>
+                <p>Do not list:</p>
+                <ul class="policy-list">
+                    <li>Stolen goods.</li>
+                    <li>Counterfeit products.</li>
+                    <li>Items that infringe another person's intellectual property.</li>
+                    <li>Lost-and-found property that does not belong to you.</li>
+                </ul>
+            </section>
+
+            <!-- 4. Real Photos -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">4. Use Real Photos</h2>
+                <p>Photos should:</p>
+                <ul class="policy-list">
+                    <li>Show the actual item.</li>
+                    <li>Be clear and well lit.</li>
+                    <li>Accurately represent the item's condition.</li>
+                </ul>
+                <p>Avoid:</p>
+                <ul class="policy-list">
+                    <li>Images copied from online stores.</li>
+                    <li>Watermarked images you do not own.</li>
+                    <li>Images unrelated to the listing.</li>
+                    <li>Misleading edits or filters.</li>
+                </ul>
+            </section>
+
+            <!-- 5. Relevant listings -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">5. Keep Listings Relevant</h2>
+                <p>SkoolSwap is designed for school communities.</p>
+                <p>Examples of suitable items include:</p>
+                <ul class="policy-list">
+                    <li>School uniforms</li>
+                    <li>Sports uniforms</li>
+                    <li>School shoes</li>
+                    <li>Textbooks</li>
+                    <li>Stationery</li>
+                    <li>Backpacks</li>
+                    <li>Calculators</li>
+                    <li>Musical instruments</li>
+                    <li>Sports equipment</li>
+                    <li>School accessories</li>
+                </ul>
+                <p>Listings unrelated to education or school life may be removed.</p>
+            </section>
+
+            <!-- 6. Complete through SkoolSwap -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">6. Complete Transactions Through SkoolSwap</h2>
+                <p>Where secure payments and escrow are available, buyers and sellers should complete transactions through the Platform.</p>
+                <p>Attempting to bypass Platform fees or payment protections may result in account action.</p>
+            </section>
+
+            <!-- 7. Meet safely -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">7. Meet Safely</h2>
+                <p>If collecting an item in person:</p>
+                <ul class="policy-list">
+                    <li>Meet in a public place.</li>
+                    <li>Avoid carrying unnecessary cash.</li>
+                    <li>Inspect the item before confirming receipt.</li>
+                    <li>Bring another adult if possible.</li>
+                </ul>
+                <p>SkoolSwap cannot supervise meetings between users.</p>
+            </section>
+
+            <!-- 8. Respect schools -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">8. Respect School Communities</h2>
+                <p>School names help users find relevant listings.</p>
+                <p>Do not:</p>
+                <ul class="policy-list">
+                    <li>Pretend to represent a school.</li>
+                    <li>Misuse school logos or branding.</li>
+                    <li>Claim endorsement by a school unless authorized.</li>
+                </ul>
+            </section>
+
+            <!-- 9. Report problems -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">9. Report Problems</h2>
+                <p>Help keep the community safe by reporting:</p>
+                <ul class="policy-list">
+                    <li>Fraudulent listings.</li>
+                    <li>Counterfeit items.</li>
+                    <li>Harassment.</li>
+                    <li>Suspicious behaviour.</li>
+                    <li>Scam attempts.</li>
+                    <li>Inappropriate content.</li>
+                </ul>
+                <p>False or malicious reports may themselves violate these Guidelines.</p>
+            </section>
+
+            <!-- 10. Privacy -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">10. Protect Your Privacy</h2>
+                <p>Never publicly share sensitive personal information such as:</p>
+                <ul class="policy-list">
+                    <li>Identity numbers</li>
+                    <li>Banking details</li>
+                    <li>Passwords</li>
+                    <li>One-time passwords (OTPs)</li>
+                    <li>Verification codes</li>
+                </ul>
+                <p>Use the Platform responsibly and protect your account credentials.</p>
+            </section>
+
+            <!-- 11. Communication -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">11. Keep Communication Appropriate</h2>
+                <p>Messages should relate to the transaction.</p>
+                <p>Do not use SkoolSwap messaging to:</p>
+                <ul class="policy-list">
+                    <li>Send spam.</li>
+                    <li>Advertise unrelated products or services.</li>
+                    <li>Request personal financial information.</li>
+                    <li>Harass or intimidate other users.</li>
+                </ul>
+            </section>
+
+            <!-- 12. Consequences -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">12. Consequences of Violations</h2>
+                <p>Depending on the seriousness or frequency of a violation, SkoolSwap may:</p>
+                <ul class="policy-list">
+                    <li>Remove a listing.</li>
+                    <li>Issue a warning.</li>
+                    <li>Restrict account features.</li>
+                    <li>Suspend an account.</li>
+                    <li>Permanently terminate an account.</li>
+                    <li>Report unlawful activity to the relevant authorities where required by law.</li>
+                </ul>
+            </section>
+
+            <!-- 13. Working together -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">13. Working Together</h2>
+                <p>Every user contributes to making SkoolSwap a trusted marketplace.</p>
+                <p>By being honest, respectful, and responsible, you help create a safer experience for buyers, sellers, and school communities across South Africa.</p>
+                <div class="guideline-highlight">
+                    <p class="font-medium text-blue-800">Thank you for being part of the SkoolSwap community.</p>
+                </div>
+            </section>
+
+        </div> <!-- end prose -->
 
         <div class="mt-8 text-center">
-          <a href="https://skoolswap.co.za" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"><i class="fas fa-arrow-left mr-2"></i> Back to Home</a>
+            <a href="/" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Home
+            </a>
         </div>
     </div>
 
-    <!-- SEARCH SCRIPT (Same as Privacy Policy) -->
+    <!-- SEARCH SCRIPT (cross-policy navigation) -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const now = new Date();
             document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
         });
+
         const pages = [
             { title: "Privacy Policy", url: "/privacy", keywords: "privacy data collect information use share security rights children contact" },
-            { title: "Terms & Conditions", url: "/terms", keywords: "terms conditions account buying selling escrow payment prohibited items refunds disputes liability" },
+            { title: "Terms and Conditions", url: "/terms", keywords: "terms conditions account buying selling escrow payment prohibited items refunds disputes liability" },
             { title: "Data Deletion Instructions", url: "/deletion", keywords: "deletion data delete account request email instructions" },
             { title: "Community Guidelines", url: "/guidelines", keywords: "guidelines community honest respectful safe meet-ups allowed items fraud" }
         ];
+
         function performSearch() {
             const query = document.getElementById('siteSearchInput').value.trim().toLowerCase();
             const resultsDiv = document.getElementById('searchResults');
@@ -94,6 +295,7 @@
             }
             resultsDiv.classList.add('show');
         }
+
         document.addEventListener('click', function(e) {
             if (!e.target.closest('#siteSearchInput') && !e.target.closest('#searchResults')) {
                 document.getElementById('searchResults').classList.remove('show');

@@ -1,27 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms & Conditions - SkoolSwap</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms and Conditions · SkoolSwap</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        #searchResults { display: none; }
-        #searchResults.show { display: block; }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        #searchResults {
+            display: none;
+        }
+        #searchResults.show {
+            display: block;
+        }
+        /* extra spacing for readability */
+        .policy-section {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        .policy-subsection {
+            margin-top: 1.5rem;
+        }
+        .policy-list {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 0.75rem 0 1rem 0;
+        }
+        .policy-list li {
+            margin-bottom: 0.4rem;
+        }
+        .legal-note {
+            background: #f8fafc;
+            padding: 0.5rem 1rem;
+            border-left: 4px solid #3b82f6;
+            border-radius: 0.25rem;
+            margin: 1.25rem 0;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
     <div class="max-w-4xl mx-auto p-6 py-10">
         <!-- Header with Search -->
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6 border-b">
-            <h1 class="text-3xl font-bold">Terms & Conditions</h1>
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6 border-b border-gray-200">
+            <h1 class="text-3xl font-bold tracking-tight">Terms and Conditions</h1>
             <div class="relative w-full md:w-auto">
                 <div class="flex">
-                    <input type="text" id="siteSearchInput" placeholder="Search policies..." 
-                           class="w-full md:w-64 px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <input type="text" id="siteSearchInput" placeholder="Search policies…"
+                        class="w-full md:w-64 px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
                     <button onclick="performSearch()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-r-lg font-medium">
                         <i class="fas fa-search"></i>
                     </button>
@@ -30,59 +60,437 @@
             </div>
         </div>
 
-        <!-- Content -->
+        <!-- Terms and Conditions – full detail with improved spacing -->
         <div class="prose max-w-none bg-white p-8 rounded-xl shadow-sm">
+
             <p class="text-gray-600"><strong>Last updated:</strong> <span id="currentDate"></span></p>
-            <p>Welcome to SkoolSwap. By using the SkoolSwap app or website (skoolswap.co.za), you agree to these Terms.</p>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">1. Overview</h2>
-            <p>SkoolSwap is a marketplace for buying and selling used school items. The platform uses an escrow system, where payment is held until the buyer confirms collection using a PIN code.</p>
+            <p class="mt-4">Welcome to <strong>SkoolSwap</strong> ("SkoolSwap", "we", "our", or "us"). These Terms and Conditions ("Terms") govern your access to and use of the SkoolSwap mobile application, website located at <strong>https://skoolswap.co.za</strong>, and all related services (collectively, the "Platform").</p>
+            <p>By creating an account, accessing, or using the Platform, you confirm that you have read, understood, and agree to be bound by these Terms and our Privacy Policy.</p>
+            <p>If you do not agree to these Terms, you must not use the Platform.</p>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">2. Account Registration</h2>
-            <p>To use the app, you must: Be 18+; Provide accurate details; Not impersonate anyone; Use your real email or school account.</p>
+            <!-- 1. About -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">1. About SkoolSwap</h2>
+                <p>SkoolSwap is an online marketplace that enables members of school communities to buy, sell, exchange, and discover new and pre-loved school-related items.</p>
+                <p>The Platform connects buyers and sellers but is <strong>not</strong> the owner, manufacturer, or reseller of the goods listed by users.</p>
+                <p>Unless expressly stated otherwise, SkoolSwap acts only as a technology platform that facilitates communication and secure transactions between users.</p>
+            </section>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">3. Buying Items</h2>
-            <p>Buyers agree to: Use the SkoolSwap escrow system; Pay the full listed price; Collect items within the agreed timeframe; Enter the seller's PIN only after receiving the item.</p>
+            <!-- 2. Eligibility -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">2. Eligibility</h2>
+                <p>To use SkoolSwap, you must:</p>
+                <ul class="policy-list">
+                    <li>Be at least 18 years old; or</li>
+                    <li>Have permission from your parent or legal guardian if you are under 18.</li>
+                    <li>Provide accurate registration information.</li>
+                    <li>Agree to comply with these Terms and all applicable laws.</li>
+                </ul>
+                <p>By using the Platform, you confirm that you have the legal capacity to enter into this agreement.</p>
+            </section>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">4. Selling Items</h2>
-            <p>Sellers agree to: List accurate descriptions and honest conditions; Meet buyers safely; Provide the correct escrow PIN; Release the item only when buyer shows the app confirmation.</p>
+            <!-- 3. User Accounts -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">3. User Accounts</h2>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">5. Escrow & Payment Rules</h2>
-            <p>Buyer pays → Money held in escrow; Buyer collects → Enters PIN; Seller gets paid → After PIN verification; No PIN = No payout. SkoolSwap monitors disputes and may temporarily hold funds.</p>
+                <div class="policy-subsection">
+                    <h3 class="text-xl font-semibold">3.1 Registration</h3>
+                    <p>You may create an account using one of the authentication methods supported by SkoolSwap, including Google Sign-In.</p>
+                    <p>You agree that all information you provide is accurate, current, and complete.</p>
+                </div>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">6. Prohibited Items</h2>
-            <p>You may NOT list: Weapons; Food; Fake uniforms; Dangerous items; Alcohol/tobacco; Stolen goods.</p>
+                <div class="policy-subsection">
+                    <h3 class="text-xl font-semibold">3.2 Account Security</h3>
+                    <p>You are responsible for:</p>
+                    <ul class="policy-list">
+                        <li>Maintaining the security of your account.</li>
+                        <li>Protecting your login credentials.</li>
+                        <li>All activities performed using your account.</li>
+                    </ul>
+                    <p>If you suspect unauthorized access, you must notify SkoolSwap immediately.</p>
+                </div>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">7. Refunds & Disputes</h2>
-            <p>Refunds are handled case-by-case. SkoolSwap may issue: Full refund; Partial refund; No refund (if rules broken).</p>
+                <div class="policy-subsection">
+                    <h3 class="text-xl font-semibold">3.3 Multiple Accounts</h3>
+                    <p>Unless expressly permitted by SkoolSwap, users may not create multiple accounts for the purpose of:</p>
+                    <ul class="policy-list">
+                        <li>Avoiding restrictions</li>
+                        <li>Manipulating ratings</li>
+                        <li>Circumventing suspensions</li>
+                        <li>Creating fake listings</li>
+                        <li>Misleading other users</li>
+                    </ul>
+                    <p>We reserve the right to suspend or permanently remove duplicate or fraudulent accounts.</p>
+                </div>
+            </section>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">8. Termination</h2>
-            <p>We may suspend accounts for: Fraud; Abuse; Harassment; Chargebacks; Violations of school rules.</p>
+            <!-- 4. Using the Platform -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">4. Using the Platform</h2>
+                <p>SkoolSwap allows users to:</p>
+                <ul class="policy-list">
+                    <li>Create an account.</li>
+                    <li>Browse marketplace listings.</li>
+                    <li>Search for items by school or category.</li>
+                    <li>List items for sale.</li>
+                    <li>Contact buyers and sellers.</li>
+                    <li>Complete purchases through the Platform.</li>
+                    <li>Use the escrow payment system where available.</li>
+                    <li>Report suspicious listings.</li>
+                    <li>Save favourite items.</li>
+                </ul>
+                <p>We may introduce additional services from time to time.</p>
+            </section>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">9. Liability</h2>
-            <p>SkoolSwap is not responsible for: Physical exchanges; Misuse of items; Fraud outside the app; Meet-up problems.</p>
+            <!-- 5. Marketplace Rules -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">5. Marketplace Rules</h2>
+                <p>Users agree to:</p>
+                <ul class="policy-list">
+                    <li>List only items they legally own or are authorized to sell.</li>
+                    <li>Provide accurate descriptions.</li>
+                    <li>Upload photographs of the actual item.</li>
+                    <li>Disclose defects or damage.</li>
+                    <li>Respond honestly to buyer questions.</li>
+                    <li>Keep listings updated.</li>
+                </ul>
+                <p>Users must not:</p>
+                <ul class="policy-list">
+                    <li>Upload misleading listings.</li>
+                    <li>Misrepresent an item's condition.</li>
+                    <li>Sell stolen goods.</li>
+                    <li>Impersonate another person.</li>
+                    <li>Circumvent SkoolSwap's payment process.</li>
+                    <li>Encourage buyers or sellers to complete transactions outside the Platform where escrow or protected payments are available.</li>
+                </ul>
+                <p>Listings that violate these Terms may be removed without notice.</p>
+            </section>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4 pt-6 border-t">10. Contact</h2>
-            <p>Email: <a href="mailto:admin@skoolswap.co.za" class="text-blue-600 hover:underline">admin@skoolswap.co.za</a><br>Website: <a href="https://skoolswap.co.za" class="text-blue-600 hover:underline">skoolswap.co.za</a></p>
-        </div>
+            <!-- 6. School Communities -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">6. School Communities</h2>
+                <p>School names may be used to organize marketplace listings and help users discover relevant items.</p>
+                <p>Users agree:</p>
+                <ul class="policy-list">
+                    <li>Not to falsely claim affiliation with a school.</li>
+                    <li>Not to misuse a school's name or branding.</li>
+                    <li>Not to imply endorsement by a school unless expressly authorized.</li>
+                </ul>
+                <p>SkoolSwap may verify school-related information where necessary to maintain marketplace integrity.</p>
+            </section>
+
+            <!-- 7. Buying -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">7. Buying Items</h2>
+                <p>Buyers are responsible for reviewing listings carefully before completing a purchase.</p>
+                <p>Before purchasing, buyers should:</p>
+                <ul class="policy-list">
+                    <li>Read the full item description.</li>
+                    <li>Review all photographs.</li>
+                    <li>Ask questions if clarification is needed.</li>
+                    <li>Verify sizing, condition, and compatibility.</li>
+                </ul>
+                <p>Once payment is successfully completed, the order enters the escrow process until the transaction is completed in accordance with these Terms.</p>
+            </section>
+
+            <!-- 8. Selling -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">8. Selling Items</h2>
+                <p>Sellers agree to:</p>
+                <ul class="policy-list">
+                    <li>List only available items.</li>
+                    <li>Ship or hand over purchased items within the stated timeframe.</li>
+                    <li>Package items appropriately.</li>
+                    <li>Communicate with buyers regarding collection or delivery.</li>
+                    <li>Provide accurate tracking information where applicable.</li>
+                </ul>
+                <p>Sellers remain responsible for ensuring that listings accurately represent the item being sold.</p>
+                <p>Repeated cancellation of confirmed sales may result in account restrictions.</p>
+            </section>
+
+            <!-- 9. Escrow -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">9. Escrow Payment Process</h2>
+                <p>Where escrow is available, SkoolSwap temporarily holds the buyer's payment until the transaction has been completed.</p>
+                <p>The typical process is:</p>
+                <ol class="list-decimal pl-5 space-y-1">
+                    <li>Buyer completes payment.</li>
+                    <li>Payment is securely held.</li>
+                    <li>Seller ships or hands over the item.</li>
+                    <li>Buyer confirms receipt and that the item matches the listing.</li>
+                    <li>Where applicable, the buyer confirms receipt using the escrow verification process, including PIN confirmation.</li>
+                    <li>SkoolSwap releases payment to the seller.</li>
+                </ol>
+                <p>If a dispute is opened before payment is released, funds may remain on hold until the matter is resolved.</p>
+                <p>SkoolSwap reserves the right to delay or withhold payment where fraud, policy violations, or suspicious activity is suspected.</p>
+            </section>
+
+            <!-- 10. Fees -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">10. Fees</h2>
+                <p>Creating an account and listing items is free.</p>
+                <p>For completed sales processed through the Platform, SkoolSwap currently charges:</p>
+                <ul class="policy-list">
+                    <li><strong>5% service fee</strong></li>
+                    <li><strong>R10 fixed transaction fee</strong></li>
+                </ul>
+                <p>Applicable fees will always be shown before payment is completed.</p>
+                <p>SkoolSwap may update its fee structure from time to time. Changes will not affect transactions already completed before the effective date of the updated fees.</p>
+            </section>
+
+            <!-- 11. Shipping -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">11. Shipping, Collection and Delivery</h2>
+                <p>The seller is responsible for shipping or making the purchased item available for collection within the agreed timeframe.</p>
+                <p>Where courier services are used, sellers should:</p>
+                <ul class="policy-list">
+                    <li>Package items securely.</li>
+                    <li>Provide accurate shipping information.</li>
+                    <li>Share tracking details where available.</li>
+                    <li>Notify the buyer of any delays.</li>
+                </ul>
+                <p>Where buyers and sellers agree to meet for collection, they are responsible for arranging a safe public meeting place.</p>
+                <p>SkoolSwap is not responsible for delays, loss, theft, or damage caused by third-party courier services or collection arrangements between users.</p>
+            </section>
+
+            <!-- 12. Returns -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">12. Returns, Refunds and Cancellations</h2>
+                <p>Because most items sold on SkoolSwap are second-hand, buyers should carefully review listings before purchasing.</p>
+                <p>A buyer may request a return where:</p>
+                <ul class="policy-list">
+                    <li>The item differs substantially from the listing.</li>
+                    <li>The wrong item was received.</li>
+                    <li>The item was materially damaged before shipment and not disclosed.</li>
+                    <li>Fraud or misrepresentation has occurred.</li>
+                </ul>
+                <p>Returns may not be accepted simply because the buyer changes their mind, unless the seller agrees.</p>
+                <p>Refunds are normally processed only after:</p>
+                <ul class="policy-list">
+                    <li>the returned item has been received by the seller, or</li>
+                    <li>SkoolSwap determines that the buyer's claim is valid.</li>
+                </ul>
+                <p>Where payment has already been released to the seller, SkoolSwap may require cooperation from both parties to resolve the dispute.</p>
+            </section>
+
+            <!-- 13. Disputes -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">13. Dispute Resolution</h2>
+                <p>If a dispute arises between buyers and sellers, users should first attempt to resolve the matter through the Platform's messaging system.</p>
+                <p>Where this is unsuccessful, SkoolSwap may request supporting information, including:</p>
+                <ul class="policy-list">
+                    <li>photographs;</li>
+                    <li>tracking information;</li>
+                    <li>delivery confirmations;</li>
+                    <li>chat history;</li>
+                    <li>proof of payment; and</li>
+                    <li>any other relevant evidence.</li>
+                </ul>
+                <p>SkoolSwap may assist in resolving disputes but is not obligated to act as an arbitrator or legal representative of either party.</p>
+                <p>Our decision regarding escrowed funds will be based on the information reasonably available at the time.</p>
+            </section>
+
+            <!-- 14. Prohibited Items -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">14. Prohibited Items</h2>
+                <p>The following items may not be listed, sold, or promoted on SkoolSwap:</p>
+                <ul class="policy-list">
+                    <li>Illegal goods.</li>
+                    <li>Counterfeit products.</li>
+                    <li>Stolen property.</li>
+                    <li>Firearms, ammunition, explosives or weapons.</li>
+                    <li>Alcohol or tobacco products.</li>
+                    <li>Illegal drugs or controlled substances.</li>
+                    <li>Prescription medication.</li>
+                    <li>Dangerous chemicals.</li>
+                    <li>Adult material.</li>
+                    <li>Digital goods or gift cards (unless expressly permitted).</li>
+                    <li>Live animals.</li>
+                    <li>Food products requiring special storage.</li>
+                    <li>Items that infringe intellectual property rights.</li>
+                    <li>Any item prohibited under South African law.</li>
+                </ul>
+                <p>SkoolSwap reserves the right to remove any listing that violates these Terms or poses a risk to users or the Platform.</p>
+            </section>
+
+            <!-- 15. Conduct -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">15. User Conduct</h2>
+                <p>Users must always interact respectfully.</p>
+                <p>Users may not:</p>
+                <ul class="policy-list">
+                    <li>Harass other users.</li>
+                    <li>Threaten or intimidate others.</li>
+                    <li>Upload offensive or hateful content.</li>
+                    <li>Share false information.</li>
+                    <li>Attempt fraud or scams.</li>
+                    <li>Manipulate listings or reviews.</li>
+                    <li>Interfere with Platform security.</li>
+                    <li>Upload malicious software.</li>
+                    <li>Attempt unauthorized access to the Platform.</li>
+                </ul>
+                <p>Repeated violations may result in permanent account suspension.</p>
+            </section>
+
+            <!-- 16. Fraud -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">16. Fraud Prevention</h2>
+                <p>To protect buyers and sellers, SkoolSwap may:</p>
+                <ul class="policy-list">
+                    <li>verify user identities;</li>
+                    <li>review transactions;</li>
+                    <li>monitor unusual account activity;</li>
+                    <li>temporarily delay payouts;</li>
+                    <li>request additional verification;</li>
+                    <li>suspend suspicious transactions;</li>
+                    <li>investigate reports of fraud.</li>
+                </ul>
+                <p>Where fraudulent activity is suspected, SkoolSwap may cooperate with payment providers and law enforcement authorities where legally required.</p>
+            </section>
+
+            <!-- 17. User Content -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">17. User Content</h2>
+                <p>Users retain ownership of the photographs, descriptions, and other content they upload.</p>
+                <p>By uploading content to SkoolSwap, you grant SkoolSwap a worldwide, non-exclusive, royalty-free licence to:</p>
+                <ul class="policy-list">
+                    <li>display listings;</li>
+                    <li>promote the Platform;</li>
+                    <li>improve marketplace services; and</li>
+                    <li>operate the Platform.</li>
+                </ul>
+                <p>You confirm that you own or have permission to use all uploaded content.</p>
+            </section>
+
+            <!-- 18. IP -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">18. Intellectual Property</h2>
+                <p>All SkoolSwap branding, software, logos, graphics, designs, text, and other Platform content remain the property of SkoolSwap or its licensors.</p>
+                <p>Users may not copy, modify, distribute, reverse engineer, or commercially exploit any part of the Platform without prior written permission.</p>
+            </section>
+
+            <!-- 19. Privacy -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">19. Privacy</h2>
+                <p>Your use of the Platform is also governed by the SkoolSwap Privacy Policy.</p>
+                <p>By using the Platform, you acknowledge that your personal information will be collected, processed, and protected in accordance with that Privacy Policy.</p>
+            </section>
+
+            <!-- 20. Suspension -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">20. Suspension and Termination</h2>
+                <p>SkoolSwap may suspend or permanently terminate an account where a user:</p>
+                <ul class="policy-list">
+                    <li>breaches these Terms;</li>
+                    <li>commits fraud;</li>
+                    <li>repeatedly cancels transactions;</li>
+                    <li>sells prohibited items;</li>
+                    <li>impersonates another person;</li>
+                    <li>abuses other users;</li>
+                    <li>creates multiple fraudulent accounts;</li>
+                    <li>attempts to bypass Platform fees or security systems.</li>
+                </ul>
+                <p>Users may request deletion of their account at any time, subject to any outstanding transactions or legal obligations.</p>
+            </section>
+
+            <!-- 21. Disclaimer -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">21. Disclaimer</h2>
+                <p>SkoolSwap provides a marketplace that connects buyers and sellers.</p>
+                <p>Unless expressly stated, SkoolSwap:</p>
+                <ul class="policy-list">
+                    <li>does not own listed items;</li>
+                    <li>does not guarantee the quality, authenticity, safety, or legality of listings;</li>
+                    <li>does not guarantee that buyers or sellers will complete transactions;</li>
+                    <li>is not responsible for agreements made outside the Platform.</li>
+                </ul>
+                <p>Users are responsible for conducting transactions carefully and complying with applicable laws.</p>
+            </section>
+
+            <!-- 22. Liability -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">22. Limitation of Liability</h2>
+                <p>To the maximum extent permitted by law, SkoolSwap, its directors, employees, contractors, and partners shall not be liable for any indirect, incidental, consequential, or special damages arising from:</p>
+                <ul class="policy-list">
+                    <li>use of the Platform;</li>
+                    <li>user-generated content;</li>
+                    <li>failed transactions;</li>
+                    <li>courier delays;</li>
+                    <li>payment delays;</li>
+                    <li>loss of profits;</li>
+                    <li>data loss; or</li>
+                    <li>unauthorized access resulting from circumstances beyond our reasonable control.</li>
+                </ul>
+                <p>Nothing in these Terms excludes liability where such exclusion is prohibited by law.</p>
+            </section>
+
+            <!-- 23. Indemnity -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">23. Indemnity</h2>
+                <p>You agree to indemnify and hold harmless SkoolSwap, its directors, employees, contractors, and affiliates from any claims, losses, damages, liabilities, or legal expenses arising from:</p>
+                <ul class="policy-list">
+                    <li>your use of the Platform;</li>
+                    <li>your breach of these Terms;</li>
+                    <li>your violation of another person's rights;</li>
+                    <li>your unlawful conduct.</li>
+                </ul>
+            </section>
+
+            <!-- 24. Changes -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">24. Changes to These Terms</h2>
+                <p>SkoolSwap may update these Terms from time to time.</p>
+                <p>Where material changes are made, users will be notified through the Platform, email, or by publication on our website.</p>
+                <p>Continued use of the Platform after changes become effective constitutes acceptance of the updated Terms.</p>
+            </section>
+
+            <!-- 25. Law -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">25. Governing Law</h2>
+                <p>These Terms are governed by the laws of the Republic of South Africa.</p>
+                <p>Any dispute relating to these Terms or the Platform shall be subject to the jurisdiction of the competent courts of South Africa, unless applicable legislation provides otherwise.</p>
+            </section>
+
+            <!-- 26. Contact -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">26. Contact Us</h2>
+                <p>For questions regarding these Terms, please contact us:</p>
+                <p><strong>Support Email:</strong> <a href="mailto:admin@skoolswap.co.za" class="text-blue-600 hover:underline">admin@skoolswap.co.za</a></p>
+                <p><strong>Website:</strong> <a href="https://skoolswap.co.za" class="text-blue-600 hover:underline">skoolswap.co.za</a></p>
+                <p>We aim to respond to support requests as promptly as reasonably possible.</p>
+            </section>
+
+            <!-- 27. Entire Agreement -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">27. Entire Agreement</h2>
+                <p>These Terms, together with the Privacy Policy and any additional policies published by SkoolSwap, constitute the entire agreement between you and SkoolSwap regarding your use of the Platform.</p>
+                <p>If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall remain in full force and effect.</p>
+            </section>
+
+        </div> <!-- end prose -->
 
         <div class="mt-8 text-center">
-            <a href="/" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"><i class="fas fa-arrow-left mr-2"></i> Back to Home</a>
+            <a href="/" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Home
+            </a>
         </div>
     </div>
 
-    <!-- SEARCH SCRIPT (Same as Privacy Policy) -->
+    <!-- SEARCH SCRIPT (cross-policy navigation) -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const now = new Date();
             document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
         });
+
         const pages = [
             { title: "Privacy Policy", url: "/privacy", keywords: "privacy data collect information use share security rights children contact" },
-            { title: "Terms & Conditions", url: "/terms", keywords: "terms conditions account buying selling escrow payment prohibited items refunds disputes liability" },
+            { title: "Terms and Conditions", url: "/terms", keywords: "terms conditions account buying selling escrow payment prohibited items refunds disputes liability" },
             { title: "Data Deletion Instructions", url: "/deletion", keywords: "deletion data delete account request email instructions" },
             { title: "Community Guidelines", url: "/guidelines", keywords: "guidelines community honest respectful safe meet-ups allowed items fraud" }
         ];
+
         function performSearch() {
             const query = document.getElementById('siteSearchInput').value.trim().toLowerCase();
             const resultsDiv = document.getElementById('searchResults');
@@ -106,6 +514,7 @@
             }
             resultsDiv.classList.add('show');
         }
+
         document.addEventListener('click', function(e) {
             if (!e.target.closest('#siteSearchInput') && !e.target.closest('#searchResults')) {
                 document.getElementById('searchResults').classList.remove('show');

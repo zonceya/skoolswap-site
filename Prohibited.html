@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prohibited Items · SkoolSwap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        #searchResults {
+            display: none;
+        }
+        #searchResults.show {
+            display: block;
+        }
+        .policy-section {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        .policy-subsection {
+            margin-top: 1.5rem;
+        }
+        .policy-list {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 0.75rem 0 1rem 0;
+        }
+        .policy-list li {
+            margin-bottom: 0.4rem;
+        }
+        .warning-box {
+            background: #fef2f2;
+            padding: 0.75rem 1.25rem;
+            border-left: 4px solid #dc2626;
+            border-radius: 0.25rem;
+            margin: 1.25rem 0;
+        }
+        .allowed-box {
+            background: #f0fdf4;
+            padding: 0.75rem 1.25rem;
+            border-left: 4px solid #22c55e;
+            border-radius: 0.25rem;
+            margin: 1.25rem 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <div class="max-w-4xl mx-auto p-6 py-10">
+        <!-- Header with Search -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6 border-b border-gray-200">
+            <h1 class="text-3xl font-bold tracking-tight">Prohibited Items Policy</h1>
+            <div class="relative w-full md:w-auto">
+                <div class="flex">
+                    <input type="text" id="siteSearchInput" placeholder="Search policies…"
+                        class="w-full md:w-64 px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <button onclick="performSearch()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-r-lg font-medium">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div id="searchResults" class="absolute top-full mt-1 w-full md:w-96 bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-80 overflow-y-auto"></div>
+            </div>
+        </div>
+
+        <!-- Prohibited Items Policy – full content with spacing -->
+        <div class="prose max-w-none bg-white p-8 rounded-xl shadow-sm">
+
+            <p class="text-gray-600"><strong>Last updated:</strong> <span id="currentDate"></span></p>
+
+            <p class="mt-4">SkoolSwap is a marketplace designed for school communities. To protect our users and comply with South African law, certain items may not be listed, sold, exchanged, or promoted on the Platform.</p>
+
+            <p>If a listing violates this policy, SkoolSwap may remove it without notice and may suspend or permanently terminate the seller's account.</p>
+
+            <!-- 1. Purpose -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">1. Purpose</h2>
+                <p>This Prohibited Items Policy helps ensure that SkoolSwap remains a safe, trustworthy, and legally compliant marketplace for parents, guardians, learners, educators, and schools.</p>
+                <p>Users are responsible for ensuring that every item they list complies with this policy and all applicable laws.</p>
+            </section>
+
+            <!-- 2. Allowed Items -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">2. Items Allowed on SkoolSwap</h2>
+                <p>Examples of items that may be listed include:</p>
+                <ul class="policy-list">
+                    <li>School uniforms</li>
+                    <li>Sports uniforms</li>
+                    <li>School shoes</li>
+                    <li>Blazers</li>
+                    <li>Jerseys</li>
+                    <li>Hats and caps</li>
+                    <li>School bags</li>
+                    <li>Lunch bags</li>
+                    <li>Stationery</li>
+                    <li>Textbooks</li>
+                    <li>Study guides</li>
+                    <li>Calculators</li>
+                    <li>Musical instruments</li>
+                    <li>Sports equipment</li>
+                    <li>School accessories</li>
+                    <li>Arts and crafts supplies</li>
+                    <li>Approved educational technology (such as tablets or laptops intended for learning)</li>
+                </ul>
+                <p>All items must comply with these Terms and be accurately described.</p>
+            </section>
+
+            <!-- 3. Illegal Items -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">3. Illegal Items</h2>
+                <p>The following items are strictly prohibited:</p>
+                <ul class="policy-list">
+                    <li>Stolen property</li>
+                    <li>Counterfeit goods</li>
+                    <li>Forged certificates or documents</li>
+                    <li>Fake school uniforms intended to mislead buyers</li>
+                    <li>Illegal software</li>
+                    <li>Pirated media</li>
+                    <li>Any item whose sale is prohibited under South African law</li>
+                </ul>
+            </section>
+
+            <!-- 4. Weapons -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">4. Weapons and Dangerous Items</h2>
+                <p>You may not list:</p>
+                <ul class="policy-list">
+                    <li>Firearms</li>
+                    <li>Ammunition</li>
+                    <li>Explosives</li>
+                    <li>Fireworks</li>
+                    <li>Knives intended as weapons</li>
+                    <li>Tasers</li>
+                    <li>Pepper spray</li>
+                    <li>Crossbows</li>
+                    <li>BB guns or air rifles where prohibited</li>
+                    <li>Any dangerous weapon or accessory</li>
+                </ul>
+            </section>
+
+            <!-- 5. Alcohol, Tobacco, Drugs -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">5. Alcohol, Tobacco and Drugs</h2>
+                <p>Listings may not include:</p>
+                <ul class="policy-list">
+                    <li>Alcohol</li>
+                    <li>Cigarettes</li>
+                    <li>Cigars</li>
+                    <li>Vapes or e-cigarettes</li>
+                    <li>Tobacco products</li>
+                    <li>Nicotine products</li>
+                    <li>Illegal drugs</li>
+                    <li>Controlled substances</li>
+                    <li>Drug paraphernalia</li>
+                    <li>Prescription medication</li>
+                </ul>
+            </section>
+
+            <!-- 6. Medical -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">6. Medical and Health Products</h2>
+                <p>The following are prohibited:</p>
+                <ul class="policy-list">
+                    <li>Prescription medicines</li>
+                    <li>Medical devices requiring professional authorization</li>
+                    <li>Used syringes or needles</li>
+                    <li>Blood testing kits</li>
+                    <li>Biological samples</li>
+                    <li>Hazardous medical waste</li>
+                </ul>
+            </section>
+
+            <!-- 7. Adult -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">7. Adult Content</h2>
+                <p>You may not list:</p>
+                <ul class="policy-list">
+                    <li>Pornographic material</li>
+                    <li>Sexually explicit products</li>
+                    <li>Adult toys</li>
+                    <li>Escort or adult services</li>
+                    <li>Content exploiting or endangering children</li>
+                </ul>
+                <div class="warning-box">
+                    <p class="font-medium text-red-700">Any content involving child exploitation will be reported to the appropriate authorities.</p>
+                </div>
+            </section>
+
+            <!-- 8. Animals -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">8. Animals and Plants</h2>
+                <p>Listings may not include:</p>
+                <ul class="policy-list">
+                    <li>Live animals</li>
+                    <li>Animal parts prohibited by law</li>
+                    <li>Protected wildlife</li>
+                    <li>Endangered species</li>
+                    <li>Illegal plants or seeds</li>
+                </ul>
+            </section>
+
+            <!-- 9. Food -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">9. Food and Beverages</h2>
+                <p>Unless specifically approved by SkoolSwap, users may not sell:</p>
+                <ul class="policy-list">
+                    <li>Homemade food</li>
+                    <li>Perishable food</li>
+                    <li>Alcoholic beverages</li>
+                    <li>Nutritional supplements making medical claims</li>
+                    <li>Expired food products</li>
+                </ul>
+            </section>
+
+            <!-- 10. Digital -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">10. Digital Products</h2>
+                <p>The following may not be listed without written approval from SkoolSwap:</p>
+                <ul class="policy-list">
+                    <li>Gift cards</li>
+                    <li>Digital accounts</li>
+                    <li>Streaming subscriptions</li>
+                    <li>Software licences</li>
+                    <li>Cryptocurrency</li>
+                    <li>NFTs</li>
+                    <li>Download codes</li>
+                </ul>
+            </section>
+
+            <!-- 11. Financial -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">11. Financial Products</h2>
+                <p>Listings may not include:</p>
+                <ul class="policy-list">
+                    <li>Loans</li>
+                    <li>Insurance products</li>
+                    <li>Investment opportunities</li>
+                    <li>Shares or securities</li>
+                    <li>Credit services</li>
+                    <li>Money transfers</li>
+                </ul>
+            </section>
+
+            <!-- 12. Hazardous -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">12. Hazardous Materials</h2>
+                <p>The following are prohibited:</p>
+                <ul class="policy-list">
+                    <li>Chemicals</li>
+                    <li>Pesticides</li>
+                    <li>Explosives</li>
+                    <li>Toxic substances</li>
+                    <li>Flammable liquids</li>
+                    <li>Radioactive materials</li>
+                    <li>Corrosive products</li>
+                </ul>
+            </section>
+
+            <!-- 13. Stolen/Counterfeit -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">13. Stolen or Counterfeit Goods</h2>
+                <p>You must not sell items that:</p>
+                <ul class="policy-list">
+                    <li>Have been stolen.</li>
+                    <li>Are counterfeit.</li>
+                    <li>Infringe trademarks or copyrights.</li>
+                    <li>Misrepresent a brand or manufacturer.</li>
+                </ul>
+                <p>Where ownership is disputed, SkoolSwap may remove the listing while the matter is investigated.</p>
+            </section>
+
+            <!-- 14. Recalled -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">14. Recalled or Unsafe Products</h2>
+                <p>Items subject to a manufacturer recall or known to present a safety risk may not be listed.</p>
+                <p>Sellers should ensure that products offered for sale are safe and suitable for their intended purpose.</p>
+            </section>
+
+            <!-- 15. Inappropriate -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">15. Inappropriate Listings</h2>
+                <p>Listings may also be removed if they:</p>
+                <ul class="policy-list">
+                    <li>Promote hate or discrimination.</li>
+                    <li>Encourage violence.</li>
+                    <li>Contain offensive language.</li>
+                    <li>Include misleading photographs.</li>
+                    <li>Use false pricing.</li>
+                    <li>Are duplicates created to manipulate search results.</li>
+                    <li>Contain spam or unrelated advertising.</li>
+                </ul>
+            </section>
+
+            <!-- 16. Enforcement -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">16. Enforcement</h2>
+                <p>If a listing violates this policy, SkoolSwap may:</p>
+                <ul class="policy-list">
+                    <li>Remove the listing.</li>
+                    <li>Issue a warning.</li>
+                    <li>Restrict marketplace privileges.</li>
+                    <li>Suspend the account.</li>
+                    <li>Permanently terminate the account.</li>
+                    <li>Cancel related transactions.</li>
+                    <li>Delay or withhold escrow payouts while investigating.</li>
+                    <li>Report unlawful activity to the relevant authorities where required by law.</li>
+                </ul>
+                <div class="warning-box">
+                    <p class="font-medium text-red-700">Serious or repeated violations may result in immediate permanent suspension without prior warning.</p>
+                </div>
+            </section>
+
+            <!-- 17. Reporting -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">17. Reporting Prohibited Items</h2>
+                <p>If you believe a listing violates this policy, you can report it through the Platform.</p>
+                <p>When submitting a report, please include:</p>
+                <ul class="policy-list">
+                    <li>The listing.</li>
+                    <li>The reason for your report.</li>
+                    <li>Any supporting information or evidence.</li>
+                </ul>
+                <p>SkoolSwap will review reports as quickly as reasonably possible. Submitting false or malicious reports may result in action against your account.</p>
+            </section>
+
+            <!-- 18. Changes -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">18. Changes to This Policy</h2>
+                <p>We may update this Prohibited Items Policy from time to time to reflect changes in the law, marketplace practices, or Platform features.</p>
+                <p>The latest version will always be available on <strong>https://skoolswap.co.za</strong>.</p>
+            </section>
+
+            <!-- 19. Contact -->
+            <section class="policy-section">
+                <h2 class="text-2xl font-bold">19. Contact Us</h2>
+                <p>If you have questions about this policy or wish to report a prohibited item, please contact:</p>
+                <p><strong>Support Email:</strong> <a href="mailto:admin@skoolswap.co.za" class="text-blue-600 hover:underline">admin@skoolswap.co.za</a></p>
+                <p><strong>Website:</strong> <a href="https://skoolswap.co.za" class="text-blue-600 hover:underline">skoolswap.co.za</a></p>
+                <div class="allowed-box">
+                    <p class="font-medium text-green-700">Thank you for helping us keep SkoolSwap a safe and trusted marketplace for school communities.</p>
+                </div>
+            </section>
+
+        </div> <!-- end prose -->
+
+        <div class="mt-8 text-center">
+            <a href="/" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Home
+            </a>
+        </div>
+    </div>
+
+    <!-- SEARCH SCRIPT (cross-policy navigation) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const now = new Date();
+            document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        });
+
+        const pages = [
+            { title: "Privacy Policy", url: "/privacy", keywords: "privacy data collect information use share security rights children contact" },
+            { title: "Terms and Conditions", url: "/terms", keywords: "terms conditions account buying selling escrow payment prohibited items refunds disputes liability" },
+            { title: "Data Deletion Instructions", url: "/deletion", keywords: "deletion data delete account request email instructions" },
+            { title: "Community Guidelines", url: "/guidelines", keywords: "guidelines community honest respectful safe meet-ups allowed items fraud" },
+            { title: "Prohibited Items Policy", url: "/prohibited", keywords: "prohibited illegal weapons alcohol tobacco drugs adult animals food digital hazardous counterfeit" }
+        ];
+
+        function performSearch() {
+            const query = document.getElementById('siteSearchInput').value.trim().toLowerCase();
+            const resultsDiv = document.getElementById('searchResults');
+            resultsDiv.innerHTML = '';
+            if (query.length < 2) {
+                resultsDiv.innerHTML = '<div class="p-4 text-gray-500">Please enter at least 2 characters</div>';
+                resultsDiv.classList.add('show');
+                return;
+            }
+            const matches = pages.filter(p => p.title.toLowerCase().includes(query) || p.keywords.includes(query));
+            if (matches.length === 0) {
+                resultsDiv.innerHTML = `<div class="p-4 text-gray-500">No results for "${query}"</div>`;
+            } else {
+                matches.forEach(p => {
+                    const a = document.createElement('a');
+                    a.href = p.url;
+                    a.className = 'block p-4 border-b hover:bg-gray-50';
+                    a.innerHTML = `<div class="font-semibold">${p.title}</div><div class="text-sm text-gray-600">${p.url}</div>`;
+                    resultsDiv.appendChild(a);
+                });
+            }
+            resultsDiv.classList.add('show');
+        }
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('#siteSearchInput') && !e.target.closest('#searchResults')) {
+                document.getElementById('searchResults').classList.remove('show');
+            }
+        });
+        document.getElementById('siteSearchInput').addEventListener('input', performSearch);
+    </script>
+</body>
+</html>
